@@ -20,15 +20,15 @@ cd palserver
 ```bash
 # Server build command
 docker build . --tag palserver
-# Or specify your own options
-# If you do not change any options, your server's files will be saved into the current directory in the *Saved* folder and with default 8211 port.
+# Fill the < > brackets in the command and run it
 docker run \
  -p <SERVER PORT>:8211/tcp \
  -p <SERVER PORT>:8211/udp \
  --mount type=bind,source="<PATH WHERE YOU WANT YOUR SERVER DATA AND CONFIG SAVED>",target=/srv/palworld/Pal/Saved \
  -d --restart=<Restart Policy) palworld port=<SERVER PORT> <AFTER THIS YOU CAN SPECIFY OTHER LAUNCH OPTIONS>
-# Or just use suggested defaults
+# Or just use suggested defaults, your server's files will be saved into the current directory in the *Saved* folder and with default 8211 port.
 docker run -p 8211:8211/tcp -p 8211:8211/udp --mount type=bind,source="./Saved",target=/srv/palworld/Pal/Saved -d --restart=unless-stopped palworld port=8211
+# With this, server should be working.
 ```
 
 
